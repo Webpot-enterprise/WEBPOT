@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Webpot | Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="auth-container">
+
+  <!-- LOGIN -->
+  <div class="auth-box" id="loginBox">
+    <h2>Welcome Back</h2>
+    <p class="subtitle">Login to your Webpot account</p>
+
+    <input type="email" placeholder="Email address">
+    <input type="password" placeholder="Password">
+
+    <button class="btn-primary">Login</button>
+
+    <p class="switch">
+      Don’t have an account?
+      <span onclick="showRegister()">Create one</span>
+    </p>
+  </div>
+
+  <!-- REGISTER -->
+  <div class="auth-box hidden" id="registerBox">
+    <h2>Create Account</h2>
+    <p class="subtitle">Join Webpot today</p>
+
+    <input type="text" placeholder="Full Name">
+    <input type="email" placeholder="Email address">
+    <input type="tel" placeholder="Phone number">
+
+    <input type="password" placeholder="Password" onkeyup="checkStrength(this.value)">
+    <div class="strength" id="strengthText">Password strength</div>
+
+    <input type="password" placeholder="Re-enter Password">
+
+    <label class="terms">
+      <input type="checkbox" id="termsCheck" onchange="toggleRegister()">
+      I agree to the <a href="#">Terms & Conditions</a> and
+      <a href="#">Privacy Policy</a>
+    </label>
+
+    <button class="btn-primary" id="registerBtn" disabled>Create Account</button>
+
+    <p class="switch">
+      Already have an account?
+      <span onclick="showLogin()">Login</span>
+    </p>
+  </div>
+
+</div>
+
+<script>
+function showRegister() {
+  document.getElementById('loginBox').classList.add('hidden');
+  document.getElementById('registerBox').classList.remove('hidden');
+}
+
+function showLogin() {
+  document.getElementById('registerBox').classList.add('hidden');
+  document.getElementById('loginBox').classList.remove('hidden');
+}
+
+function toggleRegister() {
+  document.getElementById('registerBtn').disabled =
+    !document.getElementById('termsCheck').checked;
+}
+
+function checkStrength(password) {
+  const text = document.getElementById('strengthText');
+  if (password.length < 6) {
+    text.textContent = "Weak password";
+    text.style.color = "red";
+  } else if (password.length < 10) {
+    text.textContent = "Medium strength";
+    text.style.color = "orange";
+  } else {
+    text.textContent = "Strong password";
+    text.style.color = "green";
+  }
+}
+</script>
+
+</body>
+</html>
