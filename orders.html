@@ -1,73 +1,182 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orders - Webpot</title>
-<link rel="stylesheet" href="style.css">
- </head>
- <body>
-    <!-- SOLUTIONS -->
-    <section class="solutions reveal" id="solutions">
-      <h2>Website Solutions & Pricing 💡</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders - Webpot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="webpot-logo-black.png" alt="Webpot Logo">
+        <span>Webpot</span>
+      </div>
+      <nav>
+        <a href="mainpage.html#home">Home</a>
+        <a href="mainpage.html#about">About</a>
+        <a href="mainpage.html#services">Services</a>
+        <a href="mainpage.html#solutions">Solutions</a>
+        <a href="mainpage.html#contact">Contact</a>
+        <a href="login.html" class="btn-outline-nav">Login</a>
+        <a href="login.html" class="btn-nav">Get Started</a>
+      </nav>
+    </div>
+  </header>
 
-      <p class="section-subtitle">
-        Choose a complete website solution designed to match your goals and budget.
-      </p>
+  <!-- SOLUTIONS -->
+  <section class="solutions reveal" id="solutions">
+    <h2>Website Solutions & Pricing 💡</h2>
 
-      <div class="solutions-grid">
+    <p class="section-subtitle">
+      Choose a complete website solution designed to match your goals and budget.
+    </p>
 
-        <div class="solution-card">
-          <h3>Starter Website 🚀</h3>
-          <p class="solution-price">₹4,999</p>
-          <ul>
-            <li>✔ Single Page Website</li>
-            <li>✔ Responsive Design</li>
-            <li>✔ Clean Layout</li>
-            <li>✔ Basic SEO</li>
-            <li>✔ Email Support</li>
-          </ul>
-          <div class="card-actions">
-            <a href="#" class="btn-glass">View Template</a>
-            <a href="#contact" class="btn-glass">Get Started</a>
-          </div>
+    <div class="solutions-grid">
 
-        </div>
-
-        <div class="solution-card featured">
-          <h3>Business Website 🏢</h3>
-          <p class="solution-price">₹9,999</p>
-          <ul>
-            <li>✔ Up to 5 Pages</li>
-            <li>✔ Custom UI/UX</li>
-            <li>✔ Contact Forms</li>
-            <li>✔ SEO Optimization</li>
-            <li>✔ Priority Support</li>
-          </ul>
-          <div class="card-actions">
-            <a href="#" class="btn-glass">View Template</a>
-            <a href="#contact" class="btn-glass">Get Started</a>
-          </div>
-
-        </div>
-
-        <div class="solution-card">
-          <h3>Premium Web Solution 👑</h3>
-          <p class="solution-price">₹19,999</p>
-          <ul>
-            <li>✔ Unlimited Pages</li>
-            <li>✔ Advanced Animations</li>
-            <li>✔ High Performance</li>
-            <li>✔ Admin Dashboard</li>
-            <li>✔ Lifetime Support</li>
-          </ul>
-          <div class="card-actions">
-            <a href="#" class="btn-glass">View Template</a>
-            <a href="#contact" class="btn-glass">Get Started</a>
-          </div>
+      <div class="solution-card" data-plan="starter" data-price="4999">
+        <h3>Starter Website 🚀</h3>
+        <p class="solution-price">₹4,999</p>
+        <ul>
+          <li>✔ Single Page Website</li>
+          <li>✔ Responsive Design</li>
+          <li>✔ Clean Layout</li>
+          <li>✔ Basic SEO</li>
+          <li>✔ Email Support</li>
+        </ul>
+        <div class="card-actions">
+          <a href="#" class="btn-glass">View Template</a>
+          <a href="login.html" class="btn-glass primary">Get Started</a>
         </div>
       </div>
-      <script src="script.js"></script>
-    </section>
- </body>
- </html
+
+      <div class="solution-card featured" data-plan="business" data-price="9999">
+        <h3>Business Website 🏢</h3>
+        <p class="solution-price">₹9,999</p>
+        <ul>
+          <li>✔ Up to 5 Pages</li>
+          <li>✔ Custom UI/UX</li>
+          <li>✔ Contact Forms</li>
+          <li>✔ SEO Optimization</li>
+          <li>✔ Priority Support</li>
+        </ul>
+        <div class="card-actions">
+          <a href="#" class="btn-glass">View Template</a>
+          <a href="login.html" class="btn-glass primary">Get Started</a>
+        </div>
+      </div>
+
+      <div class="solution-card" data-plan="premium" data-price="19999">
+        <h3>Premium Web Solution 👑</h3>
+        <p class="solution-price">₹19,999</p>
+        <ul>
+          <li>✔ Unlimited Pages</li>
+          <li>✔ Advanced Animations</li>
+          <li>✔ High Performance</li>
+          <li>✔ Admin Dashboard</li>
+          <li>✔ Lifetime Support</li>
+        </ul>
+        <div class="card-actions">
+          <a href="#" class="btn-glass">View Template</a>
+          <a href="login.html" class="btn-glass primary">Get Started</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-dark">
+    <div class="footer-dark-container">
+
+      <!-- BRAND -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="webpot-logo-white.png" alt="Webpot Logo">
+          <span>Webpot</span>
+        </div>
+
+        <p>
+          Advanced web & digital solutions crafted to help
+          businesses grow, engage, and scale online.
+        </p>
+
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/919408191506" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://github.com/" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="mainpage.html#home">› Home</a></li>
+          <li><a href="mainpage.html#about">› About</a></li>
+          <li><a href="mainpage.html#services">› Services</a></li>
+          <li><a href="mainpage.html#solutions">› Solutions</a></li>
+          <li><a href="mainpage.html#contact">› Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="footer-links">
+        <h4>Our Services</h4>
+        <ul>
+          <li>› Web Development</li>
+          <li>› Discord Server Setup</li>
+          <li>› UI / UX Design</li>
+          <li>› SEO Optimization</li>
+        </ul>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+
+        <p>
+          📍 201, Aagan Residency,<br>
+          Chanod Colony, Vapi
+        </p>
+
+        <p>
+          📞 <a href="tel:+919408191506">+91 9408191506</a>
+        </p>
+
+        <p>
+          📧 <a href="mailto:engagewebpot@gmail.com">
+            engagewebpot@gmail.com
+          </a>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="footer-bottom-dark">
+      <p>© 2026 Webpot. All rights reserved.</p>
+
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
