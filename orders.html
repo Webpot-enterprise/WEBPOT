@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body class="orders-page">
+  <div id="loader"></div>
+  <!-- Theme Toggle Button will be injected by JS -->
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="nav-container">
@@ -23,8 +25,13 @@
         <a href="index.html#solutions">Solutions</a>
         <a href="index.html#contact">Contact</a>
       </nav>
+      <button id="theme-toggle" aria-label="Toggle theme" class="theme-toggle-btn" data-tooltip="Toggle dark/light mode">
+        🌙
+      </button>
     </div>
   </header>
+  <div class="nav-blur-overlay"></div>
+  <div class="page-content">
 
   <!-- SOLUTIONS -->
   <section class="solutions reveal" id="solutions">
@@ -84,7 +91,7 @@
     </div>
     <div class="solutions-view-more">
       <a href="#order-form" class="btn-primary btn-view-more">
-        View More â†’
+        View More ↓
       </a>
     </div>
   </section>
@@ -97,6 +104,7 @@
       <form class="quick-form-grid" action="#" method="post">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
         <input type="text" name="company" placeholder="Business / Brand">
         <input type="text" name="plan" placeholder="Plan (Starter / Business / Premium)">
         <textarea name="message" rows="4" placeholder="Project details and timeline"></textarea>
@@ -195,6 +203,33 @@
       </div>
     </div>
   </footer>
+  <!-- FLOATING ACTION BUTTON -->
+  <div class="fab-container" id="fab-container">
+    <button class="fab-toggle" id="fab-toggle" aria-label="Contact options">
+      📞
+    </button>
+    <div class="fab-menu">
+      <div class="fab-item">
+        <span class="fab-label">Contact Us</span>
+        <a href="index.html#contact" class="fab-btn" title="Contact form">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+      <div class="fab-item">
+        <span class="fab-label">Back Home</span>
+        <a href="index.html" class="fab-btn" title="Back to home">
+          <i class="fas fa-home"></i>
+        </a>
+      </div>
+      <div class="fab-item">
+        <span class="fab-label">WhatsApp</span>
+        <a href="https://wa.me/919999999999" class="fab-btn" target="_blank" title="Chat on WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div> <!-- end page-content -->
 
   <script src="script.js"></script>
 </body>

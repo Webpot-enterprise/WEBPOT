@@ -51,6 +51,12 @@ WEBPOT/
 ├── 📁 webpot-images/
 │   └── 📄 website business card.pdf # Business card PDF
 │
+├── 📁 Adv_css/
+│   ├── 📄 index.html                # Tailwind CSS prototype demo
+│   ├── 📄 tailwind.css              # Tailwind CSS input file
+│   ├── 📄 output.css                # Tailwind build output (placeholder)
+│   └── 📄 script.js                 # Advanced frontend features script
+│
 └── 📁 .git/ & .github/             # Version control
 ```
 
@@ -268,6 +274,52 @@ Full-service Discord server creation from scratch:
 - `webpot-logo-black.png` - Dark logo for light backgrounds
 - `webpot-logo-white.png` - Light logo for dark backgrounds
 - `website business card.pdf` - Business card design
+
+---
+
+## 🚀 Tailwind UI Upgrade (Adv_css)
+
+A new folder `Adv_css/` has been added in the project root. This folder contains a modern Tailwind CSS-based prototype UI with the following files:
+
+- `index.html` – Responsive demo with:
+  - Sticky smart navbar (hide/reveal on scroll)
+  - Hero section with animated gradient background
+  - Feature cards grid (masonry-like on desktop)
+  - CTA buttons with microinteractions
+  - Footer
+- `tailwind.css` – Tailwind CSS input file (for custom config if needed)
+- `output.css` – Placeholder for Tailwind build output (not required if using CDN)
+- `script.js` – Implements advanced frontend-only features:
+  - Theme toggle (dark/light, smooth transition, localStorage)
+  - Reveal-on-scroll animations (IntersectionObserver)
+  - 3D card hover effects (CSS transform)
+  - Animated SVG icons (hover)
+  - Microinteractions (button/input feedback)
+  - Custom scrollbar
+  - Page transition effect (fade-in)
+  - Counter animation (stats count up on scroll)
+  - Loader/progress indicator (top bar)
+
+All features are implemented using only HTML, Tailwind CSS, and JavaScript (no backend). The prototype can be opened directly in the browser for demo and future upgrades.
+
+---
+
+## ✨ 2026 UI/UX Upgrades (Advanced Frontend Features)
+
+The main website (index.html, orders.html, style.css, script.js) now includes:
+
+- **Theme Toggle** (Light/Dark, light by default, with localStorage)
+- **Smart Sticky Navbar** (hide/reveal on scroll, shrink on scroll)
+- **Reveal-on-Scroll Animations** (IntersectionObserver, fade/slide-in)
+- **3D Card Hover Effects** (CSS transform)
+- **Animated SVG Icons** (footer, cards)
+- **Microinteractions** (button press, input focus glow, hover transitions)
+- **Custom Scrollbar** (styled to match theme)
+- **Page Transition Effect** (fade-in on load)
+- **Counter Animation** (for stats, if present)
+- **Loader/Progress Bar** (top bar on page load)
+
+All features are implemented with HTML, CSS, and JavaScript only—no backend or extra markdowns. Light mode is default for all users.
 
 ---
 
