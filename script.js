@@ -11,13 +11,6 @@ window.addEventListener("scroll", () => {
     .classList.toggle("shrink", window.scrollY > 50);
 });
 
-// Modals
-function openLogin() {
-  document.getElementById("loginModal").style.display = "flex";
-}
-function closeLogin() {
-  document.getElementById("loginModal").style.display = "none";
-}
 function openTemplate() {
   document.getElementById("templateModal").style.display = "flex";
 }

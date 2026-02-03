@@ -4,6 +4,25 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* ===============================
+   PAGE LOAD FADE-IN
+   =============================== */
+
+body {
+  animation: pageReveal 0.8s ease forwards;
+}
+
+@keyframes pageReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* ================= ROOT & BODY ================= */
 html {
@@ -136,6 +155,27 @@ nav a {
 .btn-outline-light {
   border: 2px solid white;
   color: white;
+}
+/* ===============================
+   VIEW MORE PLANS BUTTON
+   =============================== */
+.plans-view-more {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-view-more {
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-view-more:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(168, 178, 221, 0.6);
 }
 
 /* ================= SECTIONS ================= */
