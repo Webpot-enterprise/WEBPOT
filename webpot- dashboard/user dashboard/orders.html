@@ -20,10 +20,9 @@
             <a href="index.html" class="nav-link">Dashboard</a>
             <a class="nav-link active">Orders</a>
             <a href="settings.html" class="nav-link">Settings</a>
-            <a href="../mainpage.html" class="back-link">← Back to Webpot</a>
+            <a href="../index.html" class="back-link">← Back to Webpot</a>
         </div>
     </nav>
-
     <!-- MAIN -->
     <main class="main-content">
 
@@ -76,7 +75,7 @@
                 </thead>
 
                 <tbody>
-                    <tr>
+                    <tr data-order-id="WP001" data-order-status="pending" data-order-amount="12000">
                         <td>#WP001</td>
                         <td>Starter Website</td>
                         <td>12 Aug 2026</td>
@@ -87,7 +86,7 @@
                         <td>7 Days</td>
                     </tr>
 
-                    <tr>
+                    <tr data-order-id="WP002" data-order-status="processing" data-order-amount="18000">
                         <td>#WP002</td>
                         <td>Business Website</td>
                         <td>18 Aug 2026</td>
@@ -98,7 +97,7 @@
                         <td>10 Days</td>
                     </tr>
 
-                    <tr>
+                    <tr data-order-id="WP003" data-order-status="delivered" data-order-amount="25000">
                         <td>#WP003</td>
                         <td>Premium Website</td>
                         <td>01 Sep 2026</td>
@@ -115,27 +114,27 @@
     </main>
     <!-- ORDER SUMMARY STATS -->
     <section class="orders-summary">
-        <div class="summary-box">
+        <div class="summary-box" data-summary="total-orders">
             <span>Total Orders</span>
             <strong id="sumTotal">0</strong>
         </div>
 
-        <div class="summary-box pending">
+        <div class="summary-box pending" data-summary="pending-orders">
             <span>Pending</span>
             <strong id="sumPending">0</strong>
         </div>
 
-        <div class="summary-box processing">
+        <div class="summary-box processing" data-summary="processing-orders">
             <span>Processing</span>
             <strong id="sumProcessing">0</strong>
         </div>
 
-        <div class="summary-box delivered">
+        <div class="summary-box delivered" data-summary="delivered-orders">
             <span>Delivered</span>
             <strong id="sumDelivered">0</strong>
         </div>
 
-        <div class="summary-box revenue">
+        <div class="summary-box revenue" data-summary="total-revenue">
             <span>Total Invested</span>
             <strong id="sumRevenue">₹0</strong>
         </div>

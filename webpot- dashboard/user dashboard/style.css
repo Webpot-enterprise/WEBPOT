@@ -567,17 +567,6 @@ body {
    Colors: #a8b2dd | #000
    ===================================== */
 
-:root {
-  --primary: #a8b2dd;
-  --black: #000000;
-  --bg: #f6f7fb;
-
-  --glass: rgba(255, 255, 255, 0.65);
-  --glass-strong: rgba(255, 255, 255, 0.75);
-  --border: rgba(0, 0, 0, 0.08);
-  --shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-}
-
 /* RESET */
 body {
   background: linear-gradient(135deg, #f6f7fb, #eef0f8);
@@ -1425,20 +1414,8 @@ body {
     width: 100%;
   }
 }
-:root {
-  --primary: #a8b2dd;
-  --black: #000;
-  --glass: rgba(255,255,255,0.65);
-  --border: rgba(0,0,0,0.08);
-}
 
-/* BASE */
-body {
-  margin: 0;
-  font-family: Inter, system-ui, sans-serif;
-  background: linear-gradient(135deg, #f6f7fb, #eef0f8);
-  color: var(--black);
-}
+/* LEGAL PAGE STYLES */
 
 /* HEADER */
 .legal-header {

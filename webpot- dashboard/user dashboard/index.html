@@ -23,7 +23,7 @@
             <a class="active">Dashboard</a>
             <a href="orders.html">Orders</a>
             <a href="settings.html">Settings</a>
-            <a href="../mainpage.html" class="back-to-webpot">
+            <a href="../index.html" class="back-to-webpot">
   ← Back to Webpot
 </a>
 
@@ -35,16 +35,19 @@
 
         <!-- STATS -->
         <section class="stats-grid">
-            <div class="stat-card">
+            <div class="stat-card" data-stat="total-orders">
                 <h4>Total Orders</h4>
+                <!-- PHP: {{ total_orders }} -->
                 <p>5</p>
             </div>
-            <div class="stat-card">
+            <div class="stat-card" data-stat="total-spends">
                 <h4>Total Spends</h4>
+                <!-- PHP: {{ total_spends }} -->
                 <p>₹24,999</p>
             </div>
-            <div class="stat-card">
+            <div class="stat-card" data-stat="total-referrals">
                 <h4>Referrals</h4>
+                <!-- PHP: {{ total_referrals }} -->
                 <p>2</p>
             </div>
         </section>
@@ -53,11 +56,12 @@
         <section class="profile-card">
             <h3>User Profile</h3>
             <div class="profile-grid">
-                <div><strong>Name:</strong> Suprince Kakadiya </div>
-                <div><strong>Email:</strong> Kakadiyasuprince@gmail.com</div>
-                <div><strong>Phone:</strong> +91 9408191506</div>
-                <div>
+                <div data-field="user-name"><strong>Name:</strong> <!-- PHP: {{ user_name }} --> Suprince Kakadiya </div>
+                <div data-field="user-email"><strong>Email:</strong> <!-- PHP: {{ user_email }} --> Kakadiyasuprince@gmail.com</div>
+                <div data-field="user-phone"><strong>Phone:</strong> <!-- PHP: {{ user_phone }} --> +91 9408191506</div>
+                <div data-field="referral-code">
                     <strong>Referral Code:</strong>
+                    <!-- PHP: {{ referral_code }} -->
                     <span class="ref-code">WEBPOT123</span>
                 </div>
             </div>
@@ -77,7 +81,7 @@
                 </thead>
 
                 <tbody>
-                    <tr>
+                    <tr data-order-id="WP001" data-order-status="pending">
                         <td>#WP001</td>
                         <td>Starter Website</td>
                         <td>
@@ -86,7 +90,7 @@
 
                     </tr>
 
-                    <tr>
+                    <tr data-order-id="WP002" data-order-status="processing">
                         <td>#WP002</td>
                         <td>Business Website</td>
                         <td><span class="status-badge processing">Processing</span></td>
@@ -110,7 +114,7 @@
                 </thead>
 
                 <tbody>
-                    <tr>
+                    <tr data-invoice-id="INV-001" data-invoice-status="paid">
                         <td>#INV-001</td>
                         <td>Starter Website</td>
                         <td>₹4,999</td>
@@ -120,7 +124,7 @@
                         </td>
                     </tr>
 
-                    <tr>
+                    <tr data-invoice-id="INV-002" data-invoice-status="due">
                         <td>#INV-002</td>
                         <td>Business Website</td>
                         <td>₹9,999</td>
