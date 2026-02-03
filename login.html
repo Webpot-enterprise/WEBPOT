@@ -17,11 +17,10 @@
     <h2>Welcome Back</h2>
     <p class="subtitle">Login to your Webpot account</p>
 
-    <form method="POST" action="login.php">
-      <input type="email" name="email" placeholder="Email address" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <button type="submit" class="btn-primary">Login</button>
-    </form>
+    <input type="email" placeholder="Email address">
+    <input type="password" placeholder="Password">
+
+    <button class="btn-primary">Login</button>
 
     <p class="switch">
       Don’t have an account?
@@ -34,24 +33,22 @@
     <h2>Create Account</h2>
     <p class="subtitle">Join Webpot today</p>
 
-    <form method="POST" action="register.php">
-      <input type="text" name="fullname" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email address" required>
-      <input type="tel" name="phone" placeholder="Phone number" required>
+    <input type="text" placeholder="Full Name">
+    <input type="email" placeholder="Email address">
+    <input type="tel" placeholder="Phone number">
 
-      <input type="password" name="password" placeholder="Password" onkeyup="checkStrength(this.value)" required>
-      <div class="strength" id="strengthText">Password strength</div>
+    <input type="password" placeholder="Password" onkeyup="checkStrength(this.value)">
+    <div class="strength" id="strengthText">Password strength</div>
 
-      <input type="password" name="confirm_password" placeholder="Re-enter Password" required>
+    <input type="password" placeholder="Re-enter Password">
 
-      <label class="terms">
-        <input type="checkbox" id="termsCheck" name="terms" onchange="toggleRegister()" required>
-        I agree to the <a href="#">Terms & Conditions</a> and
-        <a href="#">Privacy Policy</a>
-      </label>
+    <label class="terms">
+      <input type="checkbox" id="termsCheck" onchange="toggleRegister()">
+      I agree to the <a href="#">Terms & Conditions</a> and
+      <a href="#">Privacy Policy</a>
+    </label>
 
-      <button type="submit" class="btn-primary" id="registerBtn" disabled>Create Account</button>
-    </form>
+    <button class="btn-primary" id="registerBtn" disabled>Create Account</button>
 
     <p class="switch">
       Already have an account?
