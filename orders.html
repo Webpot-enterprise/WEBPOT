@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
-<body>
+<body class="orders-page">
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="nav-container">
@@ -82,6 +82,30 @@
       </div>
 
     </div>
+    <div class="solutions-view-more">
+      <a href="#order-form" class="btn-primary btn-view-more">
+        View More â†’
+      </a>
+    </div>
+  </section>
+  <section class="order-form-section reveal" id="order-form">
+    <div class="order-form-container">
+      <h2>Quick Order Form</h2>
+      <p class="section-subtitle">
+        Share your requirement and we will reach you at the earliest.
+      </p>
+      <form class="quick-form-grid" action="#" method="post">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="company" placeholder="Business / Brand">
+        <input type="text" name="plan" placeholder="Plan (Starter / Business / Premium)">
+        <textarea name="message" rows="4" placeholder="Project details and timeline"></textarea>
+        <button type="submit" class="btn-primary">Submit Order</button>
+      </form>
+      <p class="quick-form-note">
+        Or email us directly at <a href="mailto:info@webpot.co.in">info@webpot.co.in</a>
+      </p>
+    </div>
   </section>
 
   <!-- FOOTER -->
@@ -153,8 +177,8 @@
         </p>
 
         <p>
-          📧 <a href="mailto:engagewebpot@gmail.com">
-            engagewebpot@gmail.com
+          📧 <a href="mailto:info@webpot.co.in">
+            info@webpot.co.in
           </a>
         </p>
       </div>

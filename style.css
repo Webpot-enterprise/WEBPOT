@@ -165,6 +165,7 @@ nav a {
   justify-content: center;
   align-items: center;
   gap: 12px;
+  grid-column: 1 / -1;
 }
 
 .btn-view-more {
@@ -176,6 +177,16 @@ nav a {
 .btn-view-more:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(168, 178, 221, 0.6);
+}
+/* ===============================
+   VIEW MORE (ORDERS)
+   =============================== */
+.solutions-view-more {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1 / -1;
 }
 
 /* ================= SECTIONS ================= */
@@ -773,6 +784,65 @@ body {
   border-radius: 20px;
   border: 1px solid #e2e8f0;
 }
+/* ================= QUICK FORM ================= */
+.quick-form,
+.order-form-section {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.order-form-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.quick-form-subtitle {
+  max-width: 640px;
+  margin: 10px auto 25px;
+  color: #475569;
+}
+
+.quick-form-grid {
+  max-width: 860px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.quick-form-grid input,
+.quick-form-grid textarea {
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  resize: vertical;
+}
+
+.quick-form-grid textarea,
+.quick-form-grid button {
+  grid-column: 1 / -1;
+}
+
+.quick-form-grid button {
+  justify-self: center;
+}
+
+.quick-form-note {
+  margin-top: 14px;
+  color: #64748b;
+}
+
+.quick-form-note a {
+  color: #1e3a8a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.quick-form-note a:hover {
+  text-decoration: underline;
+}
 
 /* ---------------- HERO ---------------- */
 .hero {
@@ -944,6 +1014,50 @@ body {
 @media (max-width: 600px) {
   .footer-dark-container {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ================= NAV RESPONSIVE ================= */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  margin-left: 0;
+}
+
+@media (max-width: 900px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    padding-top: 150px;
+  }
+}
+
+/* ================= ORDERS SCROLL ================= */
+.orders-page .solutions-grid {
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .orders-page .solutions-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    padding-bottom: 10px;
+  }
+
+  .orders-page .solution-card {
+    min-width: 260px;
+    scroll-snap-align: start;
   }
 }
 
