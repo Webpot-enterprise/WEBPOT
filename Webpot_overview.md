@@ -28,14 +28,11 @@ The company's core mission is to make premium, modern websites and digital servi
 
 ```
 WEBPOT/
-├── 📄 login.html                    # Login/Registration authentication page
-├── 📄 login.css                     # Styling for login page
-├── 📄 mainpage.html                 # Main landing page (452 lines)
+├── 📄 index.html                    # Main landing page
 ├── 📄 orders.html                   # Services/pricing solutions page
 ├── 📄 script.js                     # Main JavaScript for interactions
 ├── 📄 style.css                     # Main stylesheet for website
-├── 📄 webpot-logo-black.png         # Logo asset (dark version)
-├── 📄 webpot-logo-white.png         # Logo asset (light version)
+├── 📄 style_backup.css              # Backup stylesheet
 │
 ├── 📁 webpot-dashboard/
 │   └── 📁 user dashboard/
@@ -44,18 +41,21 @@ WEBPOT/
 │       ├── 📄 settings.html         # Account settings & preferences (229 lines)
 │       ├── 📄 legal.html            # Legal information page
 │       ├── 📄 script.js             # Dashboard JavaScript functionality
-│       ├── 📄 style.css             # Dashboard styling
-│       ├── 📄 webpot-logo-black.png # Dashboard logo (dark)
-│       └── 📄 webpot-logo-white.png # Dashboard logo (light)
+│       └── 📄 style.css             # Dashboard styling
 │
 ├── 📁 webpot-images/
 │   └── 📄 website business card.pdf # Business card PDF
 │
-├── 📁 Adv_css/
-│   ├── 📄 index.html                # Tailwind CSS prototype demo
+├── 📁 Adv_css/                      # Advanced CSS & Tailwind CSS Prototype
+│   ├── 📄 index.html                # Tailwind CSS prototype demo with advanced UI features
 │   ├── 📄 tailwind.css              # Tailwind CSS input file
-│   ├── 📄 output.css                # Tailwind build output (placeholder)
+│   ├── 📄 output.css                # Tailwind build output
 │   └── 📄 script.js                 # Advanced frontend features script
+│
+├── 📄 Flow.md                       # Detailed user flow documentation
+├── 📄 Updating_list.md              # List of recent updates and features
+├── 📄 Future_upgrades_&_features.md # Planned future enhancements
+├── 📄 Webpot_overview.md            # This file - Complete project overview
 │
 └── 📁 .git/ & .github/             # Version control
 ```
@@ -248,65 +248,73 @@ Full-service Discord server creation from scratch:
 
 ## 📄 File Descriptions
 
+### **Documentation Files**
+- `Flow.md` - Detailed user journey and flow through the application
+- `Updating_list.md` - Complete list of recent updates and implemented features
+- `Future_upgrades_&_features.md` - Planned enhancements and advanced UI features
+- `Webpot_overview.md` - This comprehensive project documentation
+
 ### **Public Website Files**
 
-| File | Purpose | Lines |
-|------|---------|-------|
-| `mainpage.html` | Main landing page with full website content | 452 |
-| `style.css` | Main stylesheet for website appearance | - |
-| `script.js` | JavaScript for interactions, animations, modals | - |
-| `login.html` | Login and registration authentication page | 94 |
-| `login.css` | Styling for login/registration forms | - |
-| `orders.html` | Services, solutions, and pricing display | 73 |
+| File | Purpose |
+|------|---------|
+| `index.html` | Main landing page with full website content |
+| `style.css` | Main stylesheet for website appearance |
+| `style_backup.css` | Backup stylesheet for reference |
+| `script.js` | JavaScript for interactions, animations, modals |
+| `orders.html` | Services, solutions, and pricing display |
 
 ### **Dashboard Files**
 
-| File | Purpose | Lines |
-|------|---------|-------|
-| `dashboard/user dashboard/index.html` | User dashboard home with stats | 213 |
-| `dashboard/user dashboard/orders.html` | User orders management page | - |
-| `dashboard/user dashboard/settings.html` | Account settings and preferences | 229 |
-| `dashboard/user dashboard/legal.html` | Legal information and terms | - |
-| `dashboard/user dashboard/script.js` | Dashboard functionality scripts | - |
-| `dashboard/user dashboard/style.css` | Dashboard styling | - |
+| File | Purpose |
+|------|---------|
+| `webpot-dashboard/user dashboard/index.html` | User dashboard home with stats |
+| `webpot-dashboard/user dashboard/orders.html` | User orders management page |
+| `webpot-dashboard/user dashboard/settings.html` | Account settings and preferences |
+| `webpot-dashboard/user dashboard/legal.html` | Legal information and terms |
+| `webpot-dashboard/user dashboard/script.js` | Dashboard functionality scripts |
+| `webpot-dashboard/user dashboard/style.css` | Dashboard styling |
 
-### **Asset Files**
-- `webpot-logo-black.png` - Dark logo for light backgrounds
-- `webpot-logo-white.png` - Light logo for dark backgrounds
-- `website business card.pdf` - Business card design
+### **Advanced CSS & Tailwind Prototype Files** (Adv_css/)
+
+| File | Purpose |
+|------|---------|
+| `Adv_css/index.html` | Responsive Tailwind prototype with modern UI |
+| `Adv_css/tailwind.css` | Tailwind CSS input file with custom configuration |
+| `Adv_css/output.css` | Tailwind build output (CDN or build-based) |
+| `Adv_css/script.js` | Advanced frontend features (theme toggle, animations, effects) |
 
 ---
 
 ## 🚀 Tailwind UI Upgrade (Adv_css)
 
-A new folder `Adv_css/` has been added in the project root. This folder contains a modern Tailwind CSS-based prototype UI with the following files:
+A new folder `Adv_css/` has been added in the project root. This folder contains a modern **Tailwind CSS-based prototype UI** implementing advanced frontend-only features with the following capabilities:
 
-- `index.html` – Responsive demo with:
-  - Sticky smart navbar (hide/reveal on scroll)
-  - Hero section with animated gradient background
-  - Feature cards grid (masonry-like on desktop)
-  - CTA buttons with microinteractions
-  - Footer
-- `tailwind.css` – Tailwind CSS input file (for custom config if needed)
-- `output.css` – Placeholder for Tailwind build output (not required if using CDN)
-- `script.js` – Implements advanced frontend-only features:
-  - Theme toggle (dark/light, smooth transition, localStorage)
-  - Reveal-on-scroll animations (IntersectionObserver)
-  - 3D card hover effects (CSS transform)
-  - Animated SVG icons (hover)
-  - Microinteractions (button/input feedback)
-  - Custom scrollbar
-  - Page transition effect (fade-in)
-  - Counter animation (stats count up on scroll)
-  - Loader/progress indicator (top bar)
+### **Advanced Features Implemented:**
+- ✨ **Theme Toggle** - Light/Dark mode with smooth transitions and localStorage persistence
+- 📌 **Smart Sticky Navbar** - Hide/reveal on scroll, shrink effect on downward scroll
+- 🎨 **Reveal-on-Scroll Animations** - IntersectionObserver-based fade/slide-in effects
+- 🎭 **3D Card Hover Effects** - CSS transform effects for interactive cards
+- 🎯 **Animated SVG Icons** - Hover animations for footer and card icons
+- 💫 **Microinteractions** - Button press, input focus glow, smooth hover transitions
+- 📜 **Custom Scrollbar** - Styled to match current theme (light/dark)
+- ✨ **Page Transition Effects** - Smooth fade-in on page load
+- 📊 **Counter Animations** - Statistics count up on scroll reveal
+- ⏳ **Progress Bar/Loader** - Top-bar loading indicator
 
-All features are implemented using only HTML, Tailwind CSS, and JavaScript (no backend). The prototype can be opened directly in the browser for demo and future upgrades.
+### **Project Structure:**
+- `Adv_css/index.html` – Responsive demo page featuring all advanced UI components
+- `Adv_css/tailwind.css` – Tailwind CSS input file (for custom config if needed)
+- `Adv_css/output.css` – Tailwind build output (can be used from CDN or local build)
+- `Adv_css/script.js` – All JavaScript implementations for advanced features
+
+All features are built with **HTML, Tailwind CSS, and JavaScript only** (no backend required). The prototype can be opened directly in a browser for demonstration and serves as a foundation for future UI upgrades.
 
 ---
 
 ## ✨ 2026 UI/UX Upgrades (Advanced Frontend Features)
 
-The main website (index.html, orders.html, style.css, script.js) now includes:
+The main website (`index.html`, `orders.html`, `style.css`, `script.js`) now includes:
 
 - **Theme Toggle** (Light/Dark, light by default, with localStorage)
 - **Smart Sticky Navbar** (hide/reveal on scroll, shrink on scroll)
