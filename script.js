@@ -6,6 +6,14 @@ document.body.prepend(loader);
 window.addEventListener('DOMContentLoaded', () => {
   loader.style.display = 'block';
   setTimeout(() => loader.style.display = 'none', 900);
+
+  // Initialize AOS
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false
+  });
 });
 
 // ================= THEME TOGGLE =================

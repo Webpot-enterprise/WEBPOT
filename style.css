@@ -8,19 +8,29 @@
   --text-muted: #475569;
   --text-light: #64748b;
 
-  --accent-primary: #a8b2dd;
-  --accent-dark: #000;
-  --accent-light: #1e3a8a;
+  --accent-primary: #6366f1;
+  --accent-secondary: #8b5cf6;
+  --accent-dark: #1e1b4b;
+  --accent-light: #c7d2fe;
+
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 
   --border-color: rgba(15, 23, 42, 0.1);
   --border-light: rgba(15, 23, 42, 0.08);
 
   --shadow-light: rgba(0, 0, 0, 0.06);
   --shadow-dark: rgba(0, 0, 0, 0.14);
+  --shadow-glass: rgba(255, 255, 255, 0.25);
+  --shadow-glass-dark: rgba(0, 0, 0, 0.15);
 
   --nav-height: 80px;
-  --nav-bg: rgba(255, 255, 255, 0.65);
-  --nav-bg-scrolled: rgba(255, 255, 255, 0.8);
+  --nav-bg: rgba(255, 255, 255, 0.1);
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.15);
+
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
 }
 
 body.dark-mode {
