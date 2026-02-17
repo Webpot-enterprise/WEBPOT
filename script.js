@@ -1,127 +1,72 @@
-// ================= LOADER =================
-const loader = document.createElement('div');
-loader.id = 'loader';
-document.body.prepend(loader);
-
-window.addEventListener('DOMContentLoaded', () => {
-  loader.style.display = 'block';
-  setTimeout(() => loader.style.display = 'none', 900);
-
-  // Initialize AOS
-  AOS.init({
-    duration: 800,
-    easing: 'ease-in-out',
-    once: true,
-    mirror: false
+function revealOnScroll() {
+  document.querySelectorAll(".reveal").forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add("active");
+    }
   });
-});
-
-// ================= THEME TOGGLE =================
-const themeBtn = document.getElementById('theme-toggle');
-
-function setTheme(dark) {
-  document.body.classList.toggle('dark-mode', dark);
-  themeBtn.textContent = dark ? '☀️' : '🌙';
-  localStorage.setItem('theme', dark ? 'dark' : 'light');
 }
 
-setTheme(localStorage.getItem('theme') === 'dark');
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
 
-themeBtn?.addEventListener('click', () => {
-  setTheme(!document.body.classList.contains('dark-mode'));
-});
+function handleContactStatus() {
+  const statusElement = document.getElementById("quick-form-status");
+  if (!statusElement) return;
 
-// ================= NAVBAR SCROLL EFFECT =================
-const navbar = document.querySelector('.navbar');
-
-window.addEventListener('scroll', () => {
-  navbar?.classList.toggle('scrolled', window.scrollY > 30);
-});
-
-// ================= REVEAL ON SCROLL =================
-const revealObs = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        revealObs.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.15 }
-);
-
-document
-  .querySelectorAll('.reveal, .solution-card, .plan-card, .service-card')
-  .forEach(el => revealObs.observe(el));
-
-// ================= 3D CARD HOVER =================
-document
-  .querySelectorAll('.solution-card, .plan-card, .service-card')
-  .forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const r = card.getBoundingClientRect();
-      const dx = (e.clientX - r.left - r.width / 2) / (r.width / 2);
-      const dy = (e.clientY - r.top - r.height / 2) / (r.height / 2);
-      card.style.transform = `rotateY(${dx * 8}deg) rotateX(${-dy * 8}deg) scale(1.04)`;
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
-  });
-
-// ================= FAQ =================
-document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.parentElement;
-    document.querySelectorAll('.faq-item').forEach(f => {
-      if (f !== item) f.classList.remove('active');
-    });
-    item.classList.toggle('active');
-  });
-});
-
-// ================= ICON HOVER =================
-document.querySelectorAll('.footer-socials i').forEach(icon => {
-  icon.addEventListener('mouseenter', () => icon.classList.add('fa-bounce'));
-  icon.addEventListener('mouseleave', () => icon.classList.remove('fa-bounce'));
-});
-
-// ================= COUNTERS =================
-document.querySelectorAll('.counter').forEach(el => {
-  const target = +el.dataset.target;
-  let curr = 0;
-  const step = Math.ceil(target / 60);
-
-  const update = () => {
-    curr += step;
-    if (curr >= target) {
-      el.textContent = target;
-    } else {
-      el.textContent = curr;
-      requestAnimationFrame(update);
+  const statusMap = {
+    success: {
+      text: "Message successfully received by Webpot. We'll contact you soon!",
+      className: "is-success"
+    },
+    partial: {
+      text: "Message received by Webpot. Confirmation email could not be sent to your inbox.",
+      className: "is-warning"
+    },
+    invalid: {
+      text: "Please submit a valid contact request with required details.",
+      className: "is-error"
+    },
+    error: {
+      text: "We could not send your message right now. Please try again or email info@webpot.co.in.",
+      className: "is-error"
     }
   };
 
-  new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) {
-      update();
-    }
-  }).observe(el);
-});
+  const params = new URLSearchParams(window.location.search);
+  const status = params.get("contact_status");
 
-// ================= FAB =================
-const fabContainer = document.getElementById('fab-container');
-const fabToggle = document.getElementById('fab-toggle');
+  if (!status || !statusMap[status]) return;
 
-let fabOpen = false;
+  const selected = statusMap[status];
+  statusElement.textContent = selected.text;
+  statusElement.classList.add("is-visible", selected.className);
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) fabContainer?.classList.add('visible');
-  else fabContainer?.classList.remove('visible');
-});
+  params.delete("contact_status");
+  const newQuery = params.toString();
+  const newUrl = `${window.location.pathname}${newQuery ? `?${newQuery}` : ""}${window.location.hash}`;
+  window.history.replaceState({}, document.title, newUrl);
+}
 
-fabToggle?.addEventListener('click', () => {
-  fabOpen = !fabOpen;
-  fabToggle.classList.toggle('open', fabOpen);
+window.addEventListener("DOMContentLoaded", handleContactStatus);
+
+function openTemplate() {
+  document.getElementById("templateModal").style.display = "flex";
+}
+function closeTemplate() {
+  document.getElementById("templateModal").style.display = "none";
+}
+// FAQ Toggle
+document.querySelectorAll(".faq-question").forEach(button => {
+  button.addEventListener("click", () => {
+    const item = button.parentElement;
+
+    // Close other open FAQs (accordion behavior)
+    document.querySelectorAll(".faq-item").forEach(faq => {
+      if (faq !== item) faq.classList.remove("active");
+    });
+
+    // Toggle current
+    item.classList.toggle("active");
+  });
 });
