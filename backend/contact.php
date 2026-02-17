@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 $config = require __DIR__ . '/config.php';
 require __DIR__ . '/mail_templates.php';
+require __DIR__ . '/database.php';
 
 function redirect_with_status(string $status): void
 {
@@ -54,6 +55,25 @@ if ($name === '' || $email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL))
 
 if (text_length($name) > 120 || text_length($email) > 254 || text_length($phone) > 40 || text_length($business) > 120 || text_length($message) > 4000) {
     redirect_with_status('invalid');
+}
+
+// Save customer to database
+try {
+    $database = Database::getInstance();
+    $conn = $database->getConnection();
+    
+    $name_escaped = $conn->real_escape_string($name);
+    $email_escaped = $conn->real_escape_string($email);
+    $phone_escaped = $conn->real_escape_string($phone);
+    $business_escaped = $conn->real_escape_string($business);
+    $message_escaped = $conn->real_escape_string($message);
+    
+    $sql = "INSERT INTO customers (name, email, phone, business, message, order_status) VALUES ('$name_escaped', '$email_escaped', '$phone_escaped', '$business_escaped', '$message_escaped', 'Ordered')";
+    $conn->query($sql);
+
+} catch (Exception $e) {
+    error_log("Database Error: " . $e->getMessage());
+    // Continue even if database insertion fails - emails are more important
 }
 
 $emailData = [
