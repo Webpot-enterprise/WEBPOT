@@ -104,6 +104,8 @@ async function initDashboard() {
     if (logoutBtn) {
         logoutBtn.addEventListener('click', handleLogout);
     }
+
+    setupDeleteModalEvents();
     
     // Load customers
     await loadCustomers();
@@ -187,6 +189,7 @@ function viewCustomer(id) {
  * Confirm delete customer
  */
 let deleteCustomerId = null;
+let deleteModalEventsBound = false;
 
 function confirmDelete(id) {
     deleteCustomerId = id;
@@ -194,6 +197,56 @@ function confirmDelete(id) {
     if (modal) {
         modal.classList.add('active');
     }
+}
+
+function closeDeleteModal() {
+    const modal = document.getElementById('deleteModal');
+    const confirmBtn = document.getElementById('confirmDelete');
+
+    if (modal) {
+        modal.classList.remove('active');
+    }
+
+    if (confirmBtn) {
+        confirmBtn.disabled = false;
+        confirmBtn.textContent = 'Delete';
+    }
+
+    deleteCustomerId = null;
+}
+
+function setupDeleteModalEvents() {
+    if (deleteModalEventsBound) return;
+
+    const cancelDelete = document.getElementById('cancelDelete');
+    const confirmDeleteBtn = document.getElementById('confirmDelete');
+    const deleteModal = document.getElementById('deleteModal');
+
+    if (!deleteModal || !cancelDelete || !confirmDeleteBtn) return;
+
+    cancelDelete.addEventListener('click', closeDeleteModal);
+
+    confirmDeleteBtn.addEventListener('click', () => {
+        if (deleteCustomerId) {
+            deleteCustomer(deleteCustomerId);
+        } else {
+            closeDeleteModal();
+        }
+    });
+
+    deleteModal.addEventListener('click', (e) => {
+        if (e.target === deleteModal) {
+            closeDeleteModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && deleteModal.classList.contains('active')) {
+            closeDeleteModal();
+        }
+    });
+
+    deleteModalEventsBound = true;
 }
 
 // =====================================================
@@ -221,6 +274,8 @@ async function initManagePage() {
     if (logoutBtn) {
         logoutBtn.addEventListener('click', handleLogout);
     }
+
+    setupDeleteModalEvents();
     
     // Load customer data
     await loadCustomerDetails(customerId);
@@ -312,32 +367,6 @@ function setupManageEvents(customerId) {
     const deleteBtn = document.getElementById('deleteCustomerBtn');
     if (deleteBtn) {
         deleteBtn.addEventListener('click', () => confirmDelete(customerId));
-    }
-    
-    // Modal buttons
-    const cancelDelete = document.getElementById('cancelDelete');
-    const confirmDeleteBtn = document.getElementById('confirmDelete');
-    const deleteModal = document.getElementById('deleteModal');
-    
-    if (cancelDelete) {
-        cancelDelete.addEventListener('click', () => {
-            deleteModal.classList.remove('active');
-            deleteCustomerId = null;
-        });
-    }
-    
-    if (confirmDeleteBtn) {
-        confirmDeleteBtn.addEventListener('click', () => deleteCustomer(customerId));
-    }
-    
-    // Close modal on overlay click
-    if (deleteModal) {
-        deleteModal.addEventListener('click', (e) => {
-            if (e.target === deleteModal) {
-                deleteModal.classList.remove('active');
-                deleteCustomerId = null;
-            }
-        });
     }
 }
 
@@ -445,11 +474,12 @@ async function saveCustomerData(customerId) {
  * Delete customer
  */
 async function deleteCustomer(customerId) {
-    const modal = document.getElementById('deleteModal');
     const confirmBtn = document.getElementById('confirmDelete');
     
-    confirmBtn.disabled = true;
-    confirmBtn.textContent = 'Deleting...';
+    if (confirmBtn) {
+        confirmBtn.disabled = true;
+        confirmBtn.textContent = 'Deleting...';
+    }
     
     try {
         const response = await fetch('../backend/api/delete_customer.php', {
@@ -463,20 +493,24 @@ async function deleteCustomer(customerId) {
         const data = await response.json();
         
         if (data.success) {
+            closeDeleteModal();
             showToast('Customer deleted successfully!', 'success');
             setTimeout(() => {
                 window.location.href = 'index.html';
             }, 1000);
         } else {
             showToast(data.message || 'Failed to delete customer', 'error');
-            modal.classList.remove('active');
+            closeDeleteModal();
         }
     } catch (error) {
         console.error('Delete customer failed:', error);
         showToast('Failed to delete customer', 'error');
+        closeDeleteModal();
     } finally {
-        confirmBtn.disabled = false;
-        confirmBtn.textContent = 'Delete';
+        if (confirmBtn) {
+            confirmBtn.disabled = false;
+            confirmBtn.textContent = 'Delete';
+        }
     }
 }
 
