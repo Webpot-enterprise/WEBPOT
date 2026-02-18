@@ -23,19 +23,20 @@
 
 ### ⚡ Pagination
 - [x] backend/api/customers.php - Remove pagination (page, limit, offset)
-- [x] dashbaord_admin/script.js - Remove pagination handling
+- [x] dashboard_admin/script.js - Remove pagination handling
 
 
 
 ## Convenience Changes to Revert
 
 ### 🧩 Admin Notes Editor
-- [x] dashbaord_admin/manage.html - Remove notes textarea
+- [x] dashboard_admin/manage.html - Remove notes textarea
 
 ### 🧩 Dashboard Stats
-- [x] dashbaord_admin/index.html - Remove stats cards section
-- [x] dashbaord_admin/script.js - Remove updateStats() function
+- [x] dashboard_admin/index.html - Remove stats cards section
+- [x] dashboard_admin/script.js - Remove updateStats() function
 
 ### 🧩 Filter Tabs
-- [x] dashbaord_admin/index.html - Remove filter tabs
-- [x] dashbaord_admin/script.js - Remove filter tabs functionality
+- [x] dashboard_admin/index.html - Remove filter tabs
+- [x] dashboard_admin/script.js - Remove filter tabs functionality
+

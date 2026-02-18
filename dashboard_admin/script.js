@@ -500,7 +500,7 @@ function escapeHtml(text) {
 document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
     
-    if (path.includes('index.html') || path.endsWith('/dashbaord_admin/')) {
+    if (path.includes('index.html') || path.endsWith('/dashboard_admin/')) {
         initDashboard();
     } else if (path.includes('manage.html')) {
         initManagePage();

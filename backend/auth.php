@@ -62,7 +62,7 @@ function is_admin_logged_in(): bool {
  */
 function require_admin_login(): void {
     if (!is_admin_logged_in()) {
-        header('Location: ../dashbaord_admin/login.html');
+        header('Location: ../dashboard_admin/login.html');
         exit;
     }
 }
