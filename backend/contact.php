@@ -69,11 +69,14 @@ try {
     $message_escaped = $conn->real_escape_string($message);
     
     $sql = "INSERT INTO customers (name, email, phone, business, message, order_status) VALUES ('$name_escaped', '$email_escaped', '$phone_escaped', '$business_escaped', '$message_escaped', 'Ordered')";
-    $conn->query($sql);
+    $insertResult = $conn->query($sql);
+    if ($insertResult !== true) {
+        throw new Exception('Failed to insert customer: ' . $conn->error);
+    }
 
 } catch (Exception $e) {
     error_log("Database Error: " . $e->getMessage());
-    // Continue even if database insertion fails - emails are more important
+    redirect_with_status('error');
 }
 
 $emailData = [
