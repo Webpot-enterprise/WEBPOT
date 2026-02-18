@@ -10,9 +10,9 @@ return [
     // Database Configuration
     'db' => [
         'host' => 'localhost',
-        'name' => 'db_webpot',
-        'username' => 'WP_Admin',
-        'password' => 'Webpot@2026!!',
+        'name' => 'u122854996_webpot_db',
+        'username' => 'u122854996_WP_Admin',
+        'password' => 'Webpot@2026',
         'charset' => 'utf8mb4'
     ],
     

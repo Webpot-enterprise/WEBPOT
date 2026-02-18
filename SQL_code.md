@@ -1,11 +1,20 @@
 # Admin Dashboard Database Schema
 
-## Database: webpot_db
+## Database: u122854996_webpot_db
 
 Run the following SQL code in your Hostinger MySQL database to create the necessary tables.
 
-```
-sql
+```sql
+-- =====================================================
+-- DATABASE (optional if already created in Hostinger panel)
+-- =====================================================
+
+CREATE DATABASE IF NOT EXISTS `u122854996_webpot_db`
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+USE `u122854996_webpot_db`;
+
 -- =====================================================
 -- CUSTOMERS TABLE
 -- Stores customer information from contact form submissions
@@ -18,26 +27,26 @@ CREATE TABLE IF NOT EXISTS customers (
     phone VARCHAR(40) DEFAULT NULL,
     business VARCHAR(120) DEFAULT NULL,
     message TEXT DEFAULT NULL,
-    
+
     -- Order Status Management
     order_status ENUM('Ordered', 'Processing', 'Completed') DEFAULT 'Ordered',
-    
+
     -- Payment Information (Managed automatically based on order_status)
     -- Display Logic:
     -- Ordered    -> Unpaid
     -- Processing -> Half Paid
     -- Completed  -> Paid
-    
+
     -- Additional Admin-editable Fields
     plan_type VARCHAR(50) DEFAULT NULL,
     price_agreed DECIMAL(10, 2) DEFAULT NULL,
     delivery_date DATE DEFAULT NULL,
     notes TEXT DEFAULT NULL,
-    
+
     -- Timestamps
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    
+
     INDEX idx_order_status (order_status),
     INDEX idx_email (email),
     INDEX idx_created_at (created_at)
@@ -55,7 +64,7 @@ CREATE TABLE IF NOT EXISTS admin_sessions (
     user_agent TEXT DEFAULT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     expires_at TIMESTAMP DEFAULT NULL,
-    
+
     INDEX idx_session_token (session_token)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -72,7 +81,7 @@ CREATE TABLE IF NOT EXISTS email_logs (
     sent_to VARCHAR(254) NOT NULL,
     status ENUM('sent', 'failed', 'pending') DEFAULT 'sent',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    
+
     INDEX idx_customer_id (customer_id),
     FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -94,8 +103,7 @@ customers (1) ----< (N) email_logs
 
 ## Sample Data (For Testing)
 
-```
-sql
+```sql
 -- Insert a sample customer for testing
 INSERT INTO customers (name, email, phone, business, message, order_status, plan_type, price_agreed)
 VALUES ('Test Customer', 'test@example.com', '+91 9876543210', 'Test Business', 'Interested in premium website', 'Ordered', 'Premium', 15000.00);
@@ -104,9 +112,9 @@ VALUES ('Test Customer', 'test@example.com', '+91 9876543210', 'Test Business', 
 ## Notes
 
 1. **Payment Status**: The payment status is computed automatically based on `order_status`:
-   - If `order_status = 'Ordered'` → Display as "Unpaid"
-   - If `order_status = 'Processing'` → Display as "Half Paid"
-   - If `order_status = 'Completed'` → Display as "Paid"
+   - If `order_status = 'Ordered'` -> Display as "Unpaid"
+   - If `order_status = 'Processing'` -> Display as "Half Paid"
+   - If `order_status = 'Completed'` -> Display as "Paid"
 
 2. **Admin Credentials**: Will be hardcoded in PHP (not stored in database)
 
