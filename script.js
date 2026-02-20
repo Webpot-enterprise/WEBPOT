@@ -10,6 +10,16 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 
+function hidePreloader() {
+  const preloader = document.getElementById("preloader");
+  if (!preloader) return;
+
+  preloader.classList.add("is-hidden");
+  window.setTimeout(() => preloader.remove(), 500);
+}
+
+window.addEventListener("load", hidePreloader);
+
 function handleContactStatus() {
   const statusElement = document.getElementById("quick-form-status");
   if (!statusElement) return;
