@@ -18,7 +18,14 @@ function hidePreloader() {
   window.setTimeout(() => preloader.remove(), 500);
 }
 
-window.addEventListener("load", hidePreloader);
+const preloaderStartTime = Date.now();
+const PRELOADER_MIN_DURATION = 5000;
+
+window.addEventListener("load", () => {
+  const elapsed = Date.now() - preloaderStartTime;
+  const remaining = Math.max(0, PRELOADER_MIN_DURATION - elapsed);
+  window.setTimeout(hidePreloader, remaining);
+});
 
 function handleContactStatus() {
   const statusElement = document.getElementById("quick-form-status");
