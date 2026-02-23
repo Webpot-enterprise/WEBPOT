@@ -5,7 +5,16 @@
    - Terms & Conditions
    ===================================================== */
 
+/* ================= GLOBAL RESPONSIVE BASE ================= */
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  overflow-x: hidden;
+}
 /* =====================================================
    PAGE BASE
    ===================================================== */
@@ -154,5 +163,39 @@
   .legal-content p,
   .legal-content li {
     font-size: 0.9rem;
+  }
+}
+/* ============================================
+   LEGAL PAGE FADE-IN ANIMATION
+   ============================================ */
+
+body {
+  opacity: 0;
+  animation: legalFadeIn 0.9s ease forwards;
+}
+
+@keyframes legalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.legal-content {
+  opacity: 0;
+  animation: legalContentFade 0.8s ease forwards;
+}
+
+@keyframes legalContentFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

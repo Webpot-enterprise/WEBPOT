@@ -1,3 +1,14 @@
+
+/* ================= GLOBAL RESPONSIVE BASE ================= */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  overflow-x: hidden;
+}
 /* =====================================================
    ORDERS PAGE – WEBPOT THEME
    ===================================================== */
@@ -67,6 +78,14 @@ h1, h2, h3 {
 .plan-card.featured {
   border: 2px solid #1e3a8a;
   background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  color: white;
+  
+}
+.plan-card.featured h2{
+  color: #ffffff;
+}
+.plan-card.featured p{
+  color: white;
 }
 
 /* BADGES */
@@ -74,7 +93,7 @@ h1, h2, h3 {
   position: absolute;
   top: -14px;
   right: 24px;
-  background: #1e3a8a;
+    background: linear-gradient(135deg, #a8b2dd, #000);
   color: #ffffff;
   font-size: 0.75rem;
   padding: 6px 14px;

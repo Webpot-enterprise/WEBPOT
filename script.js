@@ -18,14 +18,15 @@ function hidePreloader() {
   window.setTimeout(() => preloader.remove(), 500);
 }
 
-const preloaderStartTime = Date.now();
-const PRELOADER_MIN_DURATION = 5000;
+const PRELOADER_DURATION = 5000;
 
-window.addEventListener("load", () => {
-  const elapsed = Date.now() - preloaderStartTime;
-  const remaining = Math.max(0, PRELOADER_MIN_DURATION - elapsed);
-  window.setTimeout(hidePreloader, remaining);
-});
+if (document.readyState === "complete") {
+  window.setTimeout(hidePreloader, PRELOADER_DURATION);
+} else {
+  window.addEventListener("load", () => {
+    window.setTimeout(hidePreloader, PRELOADER_DURATION);
+  });
+}
 
 function handleContactStatus() {
   const statusElement = document.getElementById("quick-form-status");
@@ -86,4 +87,52 @@ document.querySelectorAll(".faq-question").forEach(button => {
     // Toggle current
     item.classList.toggle("active");
   });
+});
+// ================= COUNTER ANIMATION =================
+
+const counters = document.querySelectorAll(".counter");
+
+const runCounter = (counter) => {
+  const target = +counter.getAttribute("data-target");
+  let count = 0;
+  const increment = target / 100;
+
+  const update = () => {
+    count += increment;
+    if (count < target) {
+      counter.innerText = Math.ceil(count);
+      requestAnimationFrame(update);
+    } else {
+      counter.innerText = target;
+    }
+  };
+
+  update();
+};
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      runCounter(entry.target);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.6 });
+
+counters.forEach(counter => observer.observe(counter));
+// ================= DROPDOWN CLICK FIX =================
+
+const dropdown = document.querySelector(".dropdown");
+const toggle = document.querySelector(".dropdown-toggle");
+
+toggle.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdown.classList.toggle("active");
+});
+
+// Close when clicking outside
+document.addEventListener("click", (e) => {
+  if (!dropdown.contains(e.target)) {
+    dropdown.classList.remove("active");
+  }
 });
